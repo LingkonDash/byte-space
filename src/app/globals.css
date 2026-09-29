@@ -1,1 +1,36 @@
 @import "tailwindcss";
+
+/* Fonts: `inline` lets Tailwind read the CSS variables created by next/font */
+@theme inline {
+  --font-sans: var(--font-dm-sans), sans-serif;
+  --font-heading: var(--font-poppins), sans-serif;
+}
+
+/* Colors: use these names in components (bg-primary, text-foreground-muted...) */
+@theme {
+  --color-primary: #7f30f7;
+  --color-primary-dark: #300b6a;
+  --color-secondary: #c1e338;
+  --color-brand-blue: #003be2; 
+
+  --color-background: #ffffff;
+  --color-surface: #fafafa;
+
+  --color-foreground: #000000;
+  --color-foreground-muted: #4f4f4f;
+
+  --color-border: #ced0d3;
+}
+
+@layer base {
+  body {
+    @apply bg-background font-sans text-foreground;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading tracking-[-0.01em];
+  }
+}
