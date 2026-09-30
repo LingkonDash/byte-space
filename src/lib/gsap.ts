@@ -1,8 +1,16 @@
 import type { RefObject } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export { gsap };
+gsap.registerPlugin(ScrollTrigger);
 
+export { gsap, ScrollTrigger };
+
+/**
+ * Runs GSAP animations only if the user has NOT asked for reduced motion.
+ * Selectors inside `animation` are scoped to `scope`.
+ * Return value is a cleanup function, so use it directly in useEffect.
+ */
 export function runMotionSafe(
   scope: RefObject<Element | null>,
   animation: () => void,
