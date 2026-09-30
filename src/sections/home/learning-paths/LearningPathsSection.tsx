@@ -15,7 +15,7 @@ export default function LearningPathsSection() {
         />
       </Reveal>
 
-      <ul className="mx-auto mt-8 grid max-w-[1200px] grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 md:mt-[68px] lg:grid-cols-6 xl:gap-10">
+      <ul className="mx-auto mt-8 grid max-w-300 grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 md:mt-[68px] lg:grid-cols-6 xl:gap-10">
         {LEARNING_PATHS.map((path) => (
           <Reveal as="li" key={path.slug}>
             <LearningPathCard {...path} />

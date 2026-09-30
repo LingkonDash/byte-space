@@ -28,3 +28,11 @@ export type LearningPath = {
   slug: string;
   icon: string;
 };
+
+export type Testimonial = {
+  id: string;
+  name: string;
+  role: string;
+  avatar: string;
+  quote: string;
+};

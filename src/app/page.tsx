@@ -4,6 +4,7 @@ import DiscoverSection from "@/sections/home/discover/DiscoverSection";
 import CoursesSection from "@/sections/home/courses/CoursesSection";
 import LearningPathsSection from "@/sections/home/learning-paths/LearningPathsSection";
 import FeaturesSection from "@/sections/home/features/FeaturesSection";
+import TestimonialsSection from "@/sections/home/testimonials/TestimonialsSection";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <CoursesSection />
       <LearningPathsSection />
       <FeaturesSection />
+      <TestimonialsSection />
     </main>
   );
 }

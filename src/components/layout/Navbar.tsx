@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { HiBars3, HiOutlineShoppingBag, HiXMark } from "react-icons/hi2";
 import Logo from "@/components/ui/Logo";
 import { AUTH_LINKS, NAV_LINKS } from "@/data/navigation";
@@ -28,11 +27,10 @@ export default function Navbar() {
   const backgroundRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  const isHome = usePathname() === "/";
   const { isScrolled, isHidden } = useNavbarScroll();
 
-  // Home page: transparent at the top. Every other page: always solid.
-  const hasBackground = !isHome || isScrolled;
+  // Transparent at the top on all pages. Solid on scroll.
+  const hasBackground = isScrolled;
 
   // Intro: logo, links and buttons fade in one after another
   useEffect(
@@ -73,10 +71,10 @@ export default function Navbar() {
       <div
         ref={backgroundRef}
         aria-hidden
-        className={`absolute inset-0 bg-brand-blue ${isHome ? "opacity-0" : ""}`}
+        className="absolute inset-0 bg-brand-blue opacity-0"
       />
 
-      <div className="relative mx-auto flex h-20 max-w-[1200px] items-center justify-between px-4 md:grid md:h-[120px] md:grid-cols-[1fr_auto_1fr] md:px-6 xl:px-0">
+      <div className="relative mx-auto flex h-20 max-w-300 items-center justify-between px-4 md:grid md:h-30 md:grid-cols-[1fr_auto_1fr] md:px-6 xl:px-0">
         <Logo className="nav-animate motion-safe:opacity-0" />
 
         {/* Desktop: centered links */}
