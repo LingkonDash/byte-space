@@ -49,7 +49,7 @@ export default function HeroSection() {
             1.1,
           )
           .fromTo(
-            ".hero-progress",
+            ".progress-fill",
             { scaleX: 0 },
             { scaleX: 1, duration: 1.2, ease: "power2.out" },
             1.5,

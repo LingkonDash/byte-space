@@ -31,8 +31,3 @@ export const HERO_ORNAMENTS: Ornament[] = [
     className: "-left-[12%] top-[50%] w-[30%] md:left-[78.3%] md:top-[65.6%] md:w-[22.9%]",
   },
 ];
-
-export const HERO_AVATARS = Array.from(
-  { length: 7 },
-  (_, index) => `/images/avatars/avatar-0${index + 1}.svg`,
-);
