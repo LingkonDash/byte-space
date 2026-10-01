@@ -81,12 +81,12 @@ export default function HeroSection() {
       <GridBackground className="hero-grid motion-safe:opacity-0" />
       <HeroOrnaments />
 
-      <div className="relative z-30 mx-auto flex w-full max-w-[935px] flex-col items-center px-4 pt-28 text-center md:pt-[169px]">
+      <div className="relative z-30 mx-auto flex w-full max-w-233.75 flex-col items-center px-4 pt-28 text-center md:pt-42.25">
         <h1 className="hero-reveal text-[2.5rem] font-semibold leading-[1.2] text-white motion-safe:opacity-0 sm:text-6xl lg:text-[72px]">
           Get Access to Hundreds Courses Available
         </h1>
 
-        <p className="hero-reveal mt-4 max-w-[819px] text-base text-[#dde1e5] motion-safe:opacity-0 md:mt-8 md:text-lg">
+        <p className="hero-reveal mt-4 max-w-204.75 text-base text-[#dde1e5] motion-safe:opacity-0 md:mt-8 md:text-lg">
           Unlock your creativity, gain valuable knowledge, and grow your business with our wide
           range of courses.
         </p>

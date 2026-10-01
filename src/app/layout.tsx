@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Poppins } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 
 const poppins = Poppins({
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col overflow-x-clip">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
