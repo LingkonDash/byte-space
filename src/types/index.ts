@@ -36,3 +36,21 @@ export type Testimonial = {
   avatar: string;
   quote: string;
 };
+
+export type Ornament = {
+  src: string;
+  className: string; // position and size (mobile first, then md:)
+};
+
+export type LessonModule = { title: string; description: string };
+
+export type Review = {
+  name: string;
+  role: string;
+  avatar: string;
+  rating: number;
+  time: string;
+  text: string;
+};
+
+export type RatingRow = { stars: number; percent: number; count: number };

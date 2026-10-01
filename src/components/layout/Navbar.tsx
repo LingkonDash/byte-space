@@ -13,7 +13,7 @@ import NavLink from "./NavLink";
 function CartLink({ className = "" }: { className?: string }) {
   return (
     <Link
-      href="/cart"
+      href="#"
       aria-label="Cart"
       className={`text-white transition-opacity hover:opacity-80 ${className}`}
     >

@@ -1,32 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
+import { HiBars3, HiChevronDown, HiFunnel, HiMiniSignal, HiMiniSquares2X2 } from "react-icons/hi2";
 import Reveal from "@/components/animations/Reveal";
 import RevealSection from "@/components/animations/RevealSection";
 import CourseCard from "@/components/cards/CourseCard";
-import CategoryPill from "@/components/ui/CategoryPill";
 import { COURSES } from "@/data/courses";
-import {
-  HiBars3,
-  HiChevronDown,
-  HiChevronLeft,
-  HiChevronRight,
-  HiFunnel,
-  HiMiniSignal,
-  HiMiniSquares2X2,
-} from "react-icons/hi2";
-
-const FILTER_CHIPS = [
-  "Featured",
-  "Music",
-  "Drawing & Painting",
-  "Marketing",
-  "Animation",
-  "Social Media",
-  "UI/UX Design",
-  "Creative Marketing",
-  "Cooking",
-];
 
 const FILTER_OPTIONS = ["All courses", "Featured", "Popular", "Beginner", "Trending", "Newest"];
 const LEVEL_OPTIONS = ["All levels", "Beginner", "Intermediate", "Advanced"];
@@ -41,8 +20,6 @@ const CATEGORY_OPTIONS = [
   "Cooking",
 ];
 const SORT_OPTIONS = ["Most relevant", "Newest", "Highest rated", "Price: low to high"];
-const PAGE_NUMBERS = [1, 2, 3, 4, 5];
-const CATALOG_COURSES = [...COURSES, ...COURSES, ...COURSES];
 
 type MenuKey = "filter" | "level" | "category" | "sort" | null;
 
@@ -111,18 +88,14 @@ function DropdownButton({
   );
 }
 
-export default function CoursesCatalog() {
-  const [activeCategory, setActiveCategory] = useState(FILTER_CHIPS[0]);
+export default function CreatorCatalog() {
   const [selectedFilter, setSelectedFilter] = useState(FILTER_OPTIONS[0]);
   const [selectedLevel, setSelectedLevel] = useState(LEVEL_OPTIONS[0]);
   const [selectedCategory, setSelectedCategory] = useState(CATEGORY_OPTIONS[0]);
   const [selectedSort, setSelectedSort] = useState(SORT_OPTIONS[0]);
-  const [activePage, setActivePage] = useState(1);
   const [openMenu, setOpenMenu] = useState<MenuKey>(null);
 
-  const visibleCourses = useMemo(() => CATALOG_COURSES.slice(0, 6), []);
-
-  const setPage = (next: number) => setActivePage((prev) => Math.min(Math.max(prev + next, 1), PAGE_NUMBERS.length));
+  const visibleCourses = COURSES.slice(0, 6);
 
   return (
     <RevealSection className="bg-[#f3f3f5] pb-16 pt-8 md:pb-20 md:pt-10">
@@ -196,74 +169,13 @@ export default function CoursesCatalog() {
           />
         </div>
 
-        <div className="mt-6 flex flex-wrap items-center gap-3">
-          {FILTER_CHIPS.map((chip) => (
-            <CategoryPill
-              key={chip}
-              label={chip}
-              isActive={activeCategory === chip}
-              onClick={() => setActiveCategory(chip)}
-            />
-          ))}
-        </div>
-
         <ul className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {visibleCourses.map((course, index) => (
             <Reveal as="li" key={`${course.id}-${index}`} className="h-full">
               <CourseCard course={course} />
             </Reveal>
           ))}
-          {visibleCourses.map((course, index) => (
-            <Reveal as="li" key={`${course.id}-${index}`} className="h-full">
-              <CourseCard course={course} />
-            </Reveal>
-          ))}
-          {visibleCourses.map((course, index) => (
-            <Reveal as="li" key={`${course.id}-${index}`} className="h-full">
-              <CourseCard course={course} />
-            </Reveal>
-          ))}
         </ul>
-
-        <nav aria-label="Pagination" className="mt-12 flex items-center justify-center gap-3">
-          <button
-            type="button"
-            aria-label="Previous page"
-            onClick={() => setPage(-1)}
-            className="grid h-11 w-11 cursor-pointer place-items-center rounded-full border border-[#d6d8dc] bg-white text-[#242528] transition-colors hover:border-[#c8cbd0]"
-          >
-            <HiChevronLeft className="h-4 w-4" />
-          </button>
-
-          {PAGE_NUMBERS.map((page) => {
-            const isActive = activePage === page;
-
-            return (
-              <button
-                key={page}
-                type="button"
-                aria-pressed={isActive}
-                onClick={() => setActivePage(page)}
-                className={
-                  isActive
-                    ? "grid h-11 w-11 cursor-pointer place-items-center rounded-full bg-[#2b2d31] text-sm font-medium text-white shadow-sm"
-                    : "grid h-11 w-11 cursor-pointer place-items-center rounded-full border border-[#d6d8dc] bg-white text-sm font-medium text-[#242528] transition-colors hover:border-[#c8cbd0]"
-                }
-              >
-                {page}
-              </button>
-            );
-          })}
-
-          <button
-            type="button"
-            aria-label="Next page"
-            onClick={() => setPage(1)}
-            className="grid h-11 w-11 cursor-pointer place-items-center rounded-full border border-[#d6d8dc] bg-white text-[#242528] transition-colors hover:border-[#c8cbd0]"
-          >
-            <HiChevronRight className="h-4 w-4" />
-          </button>
-        </nav>
       </div>
     </RevealSection>
   );

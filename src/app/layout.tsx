@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { DM_Sans, Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
 
 const poppins = Poppins({
   subsets: ["latin"],
